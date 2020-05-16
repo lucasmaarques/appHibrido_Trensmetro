@@ -1,0 +1,94 @@
+[
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.691697Z",
+    "criado": "2020-05-16T07:41:01.120824Z",
+    "codigo": 1,
+    "id": 4922129564827648
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.695083Z",
+    "criado": "2020-05-16T07:41:01.208787Z",
+    "codigo": 2,
+    "id": 5109124387831808
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.697678Z",
+    "criado": "2020-05-16T07:41:01.301091Z",
+    "codigo": 3,
+    "id": 5730771612467200
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.929431Z",
+    "criado": "2020-05-16T07:41:00.552013Z",
+    "codigo": 4,
+    "id": 5188387170418688
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.503139Z",
+    "criado": "2020-05-16T07:41:01.032752Z",
+    "codigo": 5,
+    "id": 6248217729564672
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.358798Z",
+    "criado": "2020-05-16T07:00:01.009569Z",
+    "codigo": 7,
+    "id": 5751337123840000
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.361658Z",
+    "criado": "2020-05-16T07:00:01.102862Z",
+    "codigo": 8,
+    "id": 6331429684248576
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.364206Z",
+    "criado": "2020-05-16T07:00:01.133654Z",
+    "codigo": 9,
+    "id": 5142770993856512
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.366544Z",
+    "criado": "2020-05-16T07:00:01.296970Z",
+    "codigo": 10,
+    "id": 5688481082769408
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.369201Z",
+    "criado": "2020-05-16T07:00:01.395941Z",
+    "codigo": 11,
+    "id": 5636024365481984
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.371592Z",
+    "criado": "2020-05-16T07:00:01.465579Z",
+    "codigo": 12,
+    "id": 5658959759278080
+  },
+  {
+    "situacao": "Operação Normal",
+    "modificado": "2020-05-16T13:42:00.374127Z",
+    "criado": "2020-05-16T07:00:01.558626Z",
+    "codigo": 13,
+    "id": 4848325937332224
+  },
+  {
+    "situacao": "Paralisada",
+    "modificado": "2020-05-16T13:42:00.700133Z",
+    "criado": "2020-05-16T07:41:01.406782Z",
+    "codigo": 15,
+    "id": 5158269769220096,
+    "descricao": "Linha 15 - Prata paralisada. Devido ao rompimento de pneu em uma composição, toda a frota está sendo inspecionada pelo Metrô e pela Bombardier para garantir a retomada da operação com segurança. Ônibus gratuitos cobrem o trecho interrompido."
+  }
+]
