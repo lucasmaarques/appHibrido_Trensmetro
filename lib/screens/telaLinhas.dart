@@ -75,7 +75,7 @@ class _telaLinhasState extends State<telaLinhas> {
 //              Expanded(child: Center(child: Text( modificado,
 //                style: TextStyle(fontSize: 18),))),
               Expanded(child: Center(child: Text("Linha " + codigo.toString(),
-                style: TextStyle(fontSize: 18),))),
+                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
               Expanded(child: Center(
                   child: Text(situacao, style: TextStyle(fontSize: 18),)))
             ],

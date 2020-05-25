@@ -29,7 +29,7 @@ class _telaLinhaState extends State<telaLinha> {
 
   _constroiAppBarLinha() {
     return AppBar(
-      title: Text("Situação da linha" + "", style: TextStyle(
+      title: Text("Situação da linha" + "${widget.linha}", style: TextStyle(
           fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
     );
   }
@@ -63,11 +63,11 @@ class _telaLinhaState extends State<telaLinha> {
 //            height: 300,
             children: <Widget>[
               Center(child: Text("Linha " + linha.codigo.toString(),
-                  style: TextStyle(fontSize: 18),)),
+                  style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),)),
               Center(
-                    child: Text(linha.situacao, style: TextStyle(fontSize: 18),)),
+                    child: Text(linha.situacao, style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold, color: Colors.red),)),
               Center(
-                    child: Text(linha.descricao == null ? "" : linha.descricao, style: TextStyle(fontSize: 18),))
+                    child: Text(linha.descricao == null ? "" : linha.descricao, style: TextStyle(fontSize: 20,),)) //textAlign: Center
             ],
 
 
