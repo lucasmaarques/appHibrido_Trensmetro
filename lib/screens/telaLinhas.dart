@@ -47,7 +47,7 @@ class _telaLinhasState extends State<telaLinhas> {
           return ListView.builder(
             itemBuilder: (context, index) {
               linhasModel linha = linhasModel.fromJson(linhas[index]);
-              return _construirLinhaLinhas(linha.modificado,linha.codigo, linha.situacao);
+              return _construirLinhaLinhas(linha);
             },
             itemCount: linhas == null ? 0 : linhas.length,
           );
@@ -60,12 +60,12 @@ class _telaLinhasState extends State<telaLinhas> {
     );
   }
 
-  _construirLinhaLinhas(String modificado, int codigo, String situacao) {
+  _construirLinhaLinhas(linhasModel linha) {
     return GestureDetector(
         onTap: () {
           Navigator.push(context,
               MaterialPageRoute(
-                  builder: (context) => telaLinha(codigo)
+                  builder: (context) => telaLinha(linha)
               ));
         },
         child: Container(
@@ -74,10 +74,12 @@ class _telaLinhasState extends State<telaLinhas> {
             children: <Widget>[
 //              Expanded(child: Center(child: Text( modificado,
 //                style: TextStyle(fontSize: 18),))),
-              Expanded(child: Center(child: Text("Linha " + codigo.toString(),
-                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),))),
+              Expanded(child: Center(child: Text("Linha " + linha.codigo.toString(),
+                style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),))),
+              Expanded(child: Center(child: Text(linha.cor,
+                style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))),
               Expanded(child: Center(
-                  child: Text(situacao, style: TextStyle(fontSize: 18),)))
+                  child: Text(linha.situacao, style: TextStyle(fontSize: 17.5),)))
             ],
           ),
         )

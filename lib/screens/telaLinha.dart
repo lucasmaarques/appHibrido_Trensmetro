@@ -4,9 +4,9 @@ import 'package:trensmetroconsulta/models/linhasModel.dart';
 
 
 class telaLinha extends StatefulWidget {
-  int linha;
-  telaLinha(int codigo){
-    this.linha = codigo;
+  linhasModel linha;
+  telaLinha(linhasModel linha){
+    this.linha = linha;
   }
 
   @override
@@ -29,48 +29,50 @@ class _telaLinhaState extends State<telaLinha> {
 
   _constroiAppBarLinha() {
     return AppBar(
-      title: Text("Situação da linha" + "${widget.linha}", style: TextStyle(
+      title: Text("Situação da linha " + "${widget.linha.codigo}" + " - ${widget.linha.cor}" , style: TextStyle(
           fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),),
     );
   }
 
   _constroiBodyLinha() {
-    return FutureBuilder(
-      future: API().getFutureDados(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          List<dynamic> linhas = snapshot.data;
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              linhasModel linha = linhasModel.fromJson(linhas[index]);
-              return _construirLinhaLinha(linha);
-            },
-            itemCount: linhas == null ? 0 : linhas.length,
-          );
-        } else {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
-    );
+//    return FutureBuilder(
+//      future: API().getFutureDados(),
+//      builder: (context, snapshot) {
+//        if (snapshot.hasData) {
+//          List<dynamic> linhas = snapshot.data;
+//          return ListView.builder(
+//            itemBuilder: (context, index) {
+//              linhasModel linha = linhasModel.fromJson(linhas[index]);
+//              return _construirLinhaLinha(widget.linhas);
+//            },
+//            itemCount: linhas == null ? 0 : linhas.length,
+//          );
+//        } else {
+//          return Center(
+//            child: CircularProgressIndicator(),
+//          );
+//        }
+//      },
+//    );
+    return _construirLinhaLinha(widget.linha);
   }
 
   _construirLinhaLinha(linhasModel linha) {
-        if(linha.codigo == 15){
+//        if(linha.codigo == 15){
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
 //            height: 300,
             children: <Widget>[
-              Center(child: Text("Linha " + linha.codigo.toString(),
+              Center(child: Text("Linha " + linha.codigo.toString() + " - " +linha.cor,
                   style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),)),
               Center(
-                    child: Text(linha.situacao, style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold, color: Colors.red),)),
+                    child: Text(linha.situacao, style: TextStyle(fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: linha.situacao != "Operação Normal" ? Colors.red : Colors.green),)),
               Center(
-                    child: Text(linha.descricao == null ? "" : linha.descricao, style: TextStyle(fontSize: 20,),)) //textAlign: Center
+                    child: Text(linha.descricao, style: TextStyle(fontSize: 20,),))
+//    child: Text(linha.descricao == null ? "Funcionando normalmente": linha.descricao , style: TextStyle(fontSize: 20,),)) //textAlign: Center
             ],
-
-
 //            child: Row(
 //              children: <Widget>[
 //                Expanded(child: Center(child: Text("Linha " + linha.codigo.toString(),
@@ -82,9 +84,9 @@ class _telaLinhaState extends State<telaLinha> {
 //              ],
 //            ),
           );
-        }else{
-          return Container();
-        }
+//        }else{
+//          return Container();
+//        }
 
   }
 }
