@@ -17,6 +17,9 @@ class _telaLinhasState extends State<telaLinhas> {
     dados = API().getFutureDados();
   }
 
+  //RefreshController _refreshController =
+  //RefreshController(initialRefresh: false);
+
   @override
   Widget build(BuildContext context) {
     return _constroitelaLinhas();
@@ -95,8 +98,8 @@ class _telaLinhasState extends State<telaLinhas> {
           height: 50,
           child: Row(
             children: <Widget>[
-//              Expanded(child: Center(child: Text( linha.modificado,
-//                style: TextStyle(fontSize: 18),))),
+              Expanded(child: Center(child: Text( linha.modificado,
+                style: TextStyle(fontSize: 18),))),
               Expanded(child: Center(child: Text("Linha " + linha.codigo.toString(),
                 style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),))),
               Expanded(child: Center(child: Text(linha.cor.toUpperCase(),
@@ -108,8 +111,8 @@ class _telaLinhasState extends State<telaLinhas> {
         )
     );
   }
-//  RefreshController _refreshController =
-//  RefreshController(initialRefresh: false);
+
+
 //  void _onRefresh() async{
 //    // monitor network fetch
 //    await Future.delayed(Duration(milliseconds: 1000));
@@ -121,13 +124,12 @@ class _telaLinhasState extends State<telaLinhas> {
 //    // monitor network fetch
 //    await Future.delayed(Duration(milliseconds: 1000));
 //    // if failed,use loadFailed(),if no data return,use LoadNodata()
-//    // items.add((items.length+1).toString());
-//    //_constroiBodyLinhas();
-//    //dados = API().getFutureDados();
+//    setState(() {
+//      dados = API().getFutureDados();
+//    });
 //    if(mounted)
 //      setState(() {
-//      dados = API().getFutureDados();
-//      _constroiBodyLinhas();
+//
 //      });
 //    _refreshController.loadComplete();
 //  }
