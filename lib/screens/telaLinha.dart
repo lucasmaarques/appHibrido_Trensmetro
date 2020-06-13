@@ -59,18 +59,19 @@ class _telaLinhaState extends State<telaLinha> {
 
   _construirLinhaLinha(linhasModel linha) {
 //        if(linha.codigo == 15){
+          String title = "Linha " + linha.codigo.toString() + " - " +linha.cor;
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
 //            height: 300,
             children: <Widget>[
-              Center(child: Text("Linha " + linha.codigo.toString() + " - " +linha.cor,
+              Center(child: Text(title,
                   style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold),)),
               Center(
                     child: Text(linha.situacao, style: TextStyle(fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: linha.situacao != "Operação Normal" ? Colors.red : Colors.green),)),
               Center(
-                    child: Text(linha.descricao, style: TextStyle(fontSize: 20,),))
+                    child: Text(linha.descricao.replaceAll(title, "").toLowerCase(),textAlign: TextAlign.center, style: TextStyle(fontSize: 20,),))
 //    child: Text(linha.descricao == null ? "Funcionando normalmente": linha.descricao , style: TextStyle(fontSize: 20,),)) //textAlign: Center
             ],
 //            child: Row(

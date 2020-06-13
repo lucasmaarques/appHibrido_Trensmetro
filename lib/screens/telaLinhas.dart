@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trensmetroconsulta/datas/api_diretodostrens.dart';
 import 'package:trensmetroconsulta/models/linhasModel.dart';
 import 'package:trensmetroconsulta/screens/telaLinha.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class telaLinhas extends StatefulWidget {
   @override
@@ -9,6 +10,13 @@ class telaLinhas extends StatefulWidget {
 }
 
 class _telaLinhasState extends State<telaLinhas> {
+  Future dados;
+  @override
+  void initState() {
+    super.initState();
+    dados = API().getFutureDados();
+  }
+
   @override
   Widget build(BuildContext context) {
     return _constroitelaLinhas();
@@ -17,6 +25,19 @@ class _telaLinhasState extends State<telaLinhas> {
   Widget _constroitelaLinhas() {
     return Scaffold(
       body: _constroiBodyLinhas(),
+//      SmartRefresher(
+//      enablePullDown: true,
+//        enablePullUp: true,
+//        controller: _refreshController,
+//        onRefresh: _onRefresh,
+//        onLoading: _onLoading,
+//        child: _constroiBodyLinhas(),
+//        physics: BouncingScrollPhysics(),
+//        footer: ClassicFooter(
+//          loadStyle: LoadStyle.ShowWhenLoading,
+//          completeDuration: Duration(milliseconds: 500),
+//        ),
+//      ),
       appBar: _constroiAppBarLinhas(),
     );
   }
@@ -29,9 +50,10 @@ class _telaLinhasState extends State<telaLinhas> {
         IconButton(
           icon: Icon(Icons.refresh),
           onPressed: (){
-            return Scaffold(
-              body: _constroiBodyLinhas(),
-            );
+            setState(() {
+              dados = API().getFutureDados();
+            });
+
           },
         )
       ],
@@ -40,7 +62,7 @@ class _telaLinhasState extends State<telaLinhas> {
 
   _constroiBodyLinhas() {
     return FutureBuilder(
-      future: API().getFutureDados(),
+      future: dados,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           List<dynamic> linhas = snapshot.data;
@@ -57,6 +79,7 @@ class _telaLinhasState extends State<telaLinhas> {
           );
         }
       },
+
     );
   }
 
@@ -72,17 +95,40 @@ class _telaLinhasState extends State<telaLinhas> {
           height: 50,
           child: Row(
             children: <Widget>[
-//              Expanded(child: Center(child: Text( modificado,
+//              Expanded(child: Center(child: Text( linha.modificado,
 //                style: TextStyle(fontSize: 18),))),
               Expanded(child: Center(child: Text("Linha " + linha.codigo.toString(),
                 style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),))),
-              Expanded(child: Center(child: Text(linha.cor,
+              Expanded(child: Center(child: Text(linha.cor.toUpperCase(),
                 style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))),
               Expanded(child: Center(
-                  child: Text(linha.situacao, style: TextStyle(fontSize: 17.5),)))
+                  child: Text(linha.situacao.replaceAll("Operação", "").toUpperCase(), style: TextStyle(fontSize: 17.5),)))
             ],
           ),
         )
     );
   }
+//  RefreshController _refreshController =
+//  RefreshController(initialRefresh: false);
+//  void _onRefresh() async{
+//    // monitor network fetch
+//    await Future.delayed(Duration(milliseconds: 1000));
+//    // if failed,use refreshFailed()
+//    _refreshController.refreshCompleted();
+//  }
+//
+//  void _onLoading() async{
+//    // monitor network fetch
+//    await Future.delayed(Duration(milliseconds: 1000));
+//    // if failed,use loadFailed(),if no data return,use LoadNodata()
+//    // items.add((items.length+1).toString());
+//    //_constroiBodyLinhas();
+//    //dados = API().getFutureDados();
+//    if(mounted)
+//      setState(() {
+//      dados = API().getFutureDados();
+//      _constroiBodyLinhas();
+//      });
+//    _refreshController.loadComplete();
+//  }
 }
