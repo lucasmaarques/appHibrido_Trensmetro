@@ -98,8 +98,8 @@ class _telaLinhasState extends State<telaLinhas> {
           height: 50,
           child: Row(
             children: <Widget>[
-              Expanded(child: Center(child: Text( linha.modificado,
-                style: TextStyle(fontSize: 18),))),
+//              Expanded(child: Center(child: Text( linha.modificado,
+//                style: TextStyle(fontSize: 18),))),
               Expanded(child: Center(child: Text("Linha " + linha.codigo.toString(),
                 style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),))),
               Expanded(child: Center(child: Text(linha.cor.toUpperCase(),
